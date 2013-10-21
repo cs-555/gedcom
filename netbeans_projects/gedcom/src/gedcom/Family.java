@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Family {
 
+	private String identifier = "";
+	private String idType = "";
 	private String fam="";
 	private String marr="";
 	private String husb="";
@@ -13,6 +15,18 @@ public class Family {
 	private String date="";
 	
 	
+	public String getIdentifier() {
+		return identifier;
+	}
+	public void setIdentifier(String identifier) {
+		this.identifier = identifier;
+	}
+	public String getIdType() {
+		return idType;
+	}
+	public void setIdType(String idType) {
+		this.idType = idType;
+	}
 	public String getFam() {
 		return fam;
 	}
@@ -46,6 +60,14 @@ public class Family {
 	    return chil.toArray(new String[chil.size()]);        
 	}
 
+	public String printAllChildren() {
+            String childrenstring = new String();
+	    for (int i = 0; i < this.chil.size(); i++){
+                childrenstring += this.chil.get(i) + " ";
+            } 
+            return childrenstring;
+	}        
+
         public ArrayList<String> getListChil(){
             return chil;
         }
@@ -66,3 +88,4 @@ public class Family {
 		this.date = date;
 	}
 }
+

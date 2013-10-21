@@ -8,16 +8,16 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Data {
+public class BeanProducer {
     
     public static void processGedcomData(ArrayList<String>  validatedGedcomLines
                                          ,List<Person> personList 
                                          ,List<Family> familyList) throws Exception {
 
-        filterPersonInfo(validatedGedcomLines,personList );
-        filterFamilyInfo(validatedGedcomLines,familyList );
+        filterPersonInfo(validatedGedcomLines,personList);
+        filterFamilyInfo(validatedGedcomLines,familyList);
         
-        //for testing
+        //for testing output
         System.out.println("Number of families: " + familyList.size());
         System.out.println("Number of persons: " + personList.size());        
         printPersonBeanListToFile(personList);
@@ -84,12 +84,12 @@ public class Data {
     }    
         
     public static void createPersonBean(ArrayList personarraylist, List<Person> personList){
-        Person person = new Person(); 
+        Person person = new Person();
+        //set person id
+        person.setIndi(personarraylist.get(0).toString().split(" ")[1]);
+        //set other properties
         for(int i = 0; i < personarraylist.size(); i++){
             String[] personlinearray = personarraylist.get(i).toString().split(" ");
-            //set person id
-            person.setIndi(personarraylist.get(0).toString().split(" ")[1]);
-            //set other properties
             switch (personlinearray[1]) {              
                 case "NAME":        person.setName(personlinearray[2] + " "+ personlinearray[3].replace("/", ""));
                          break;
@@ -110,12 +110,12 @@ public class Data {
     }
     
     public static void createFamilyBean(ArrayList familyarraylist, List<Family> familyList){
-        Family family = new Family(); 
+        Family family = new Family();
+        //set family id
+        family.setIdentifier(familyarraylist.get(0).toString().split(" ")[1]);
+        //set other properties
         for(int i = 0; i < familyarraylist.size(); i++){
             String[] familylinearray = familyarraylist.get(i).toString().split(" ");
-            //set family id
-            family.setFam(familyarraylist.get(0).toString().split(" ")[1]);
-            //set other properties
             switch (familylinearray[1]) {
                 case "HUSB":        family.setHusb(familylinearray[2]);
                          break;
@@ -127,7 +127,7 @@ public class Data {
                          break;
                 case "MARR":        family.setMarr(familyarraylist.get(i+1).toString().split(" ")[2] + " " + familyarraylist.get(i+1).toString().split(" ")[3] +" "+familyarraylist.get(i+1).toString().split(" ")[4]);
                          break;   
-                default:            family.setFam(familylinearray[2]);
+                default: break;
             }; 
         }
         familyList.add(family);
@@ -136,6 +136,7 @@ public class Data {
     
     private static void printPersonBeanListToFile(List<Person> lPerson) {
         // DEVELOPMENT AID ONLY
+        // not finished
         Writer BeanWriter = null;
         String BeanOutFileName = "/Users/michaelcasey/Google Drive/Code/netbeans_projects/gedcom/src/gedcom/personbeans.txt";
 
@@ -194,11 +195,12 @@ public class Data {
             if (sz > 0){
                 for ( int i = 0 ; i < sz ; i++){
                     BeanWriter.write("Family " + i +  
-                            " ; " + lFamily.get(i).getFam() + 
+                            " ; " + lFamily.get(i).getIdentifier() + 
                             " ; " + lFamily.get(i).getHusb() + 
                             " ; " + lFamily.get(i).getWife() + 
                             " ; " + lFamily.get(i).getMarr() + 
-                            " ; " + lFamily.get(i).getDiv() + 
+                            " ; " + lFamily.get(i).getDiv() +
+                            " ; " + lFamily.get(i).printAllChildren() +
                             "");
                     BeanWriter.write("\r\n");
                 }

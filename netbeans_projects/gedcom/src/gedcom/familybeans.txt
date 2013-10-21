@@ -1,5 +1,5 @@
 Family Bean Data
 
-Family 0 ; 10 ; @I1@ ; @I2@ ; 10 JAN 2000 ; 
-Family 1 ; @F2@ ; @I5@ ; @I6@ ;  ; 
-Family 2 ; @F3@ ; @I8@ ; @I7@ ;  ; 
+Family 0 ; @F1@ ; @I1@ ; @I2@ ; 10 JAN 2000 ;  ; @I3@ @I4@ 
+Family 1 ; @F2@ ; @I5@ ; @I6@ ;  ;  ; @I1@ @I7@ 
+Family 2 ; @F3@ ; @I8@ ; @I7@ ;  ;  ; @I9@ 

@@ -8,7 +8,7 @@ public class GedcomProcessService {
     // just put these here for development purposes
     // private static String GedcomFilename = "C:/temp/My-Family-2-Sep-2013.ged";
     private static String testFilename = "/Users/michaelcasey/Google Drive/Code/netbeans_projects/gedcom/src/gedcom/Project5_GEDCOM_GoodFormat.ged";
-    //private static String FamilyDataFilename = "/Users/michaelcasey/Google Drive/Code/netbeans_projects/gedcom/src/gedcom/familydata.ged";    
+    private static String FamilyDataFilename = "/Users/michaelcasey/Google Drive/Code/netbeans_projects/gedcom/src/gedcom/familydata.ged";    
 
     public static void main(String[] args) {
         String filename = new String();
@@ -28,7 +28,7 @@ public class GedcomProcessService {
         ArrayList<String> validatedGedcomLines = new ArrayList<String>();
 
         try {
-        Filedata.loadValidDataToArray(filename,validatedGedcomLines);
+        FileLoader.loadValidDataToArray(filename,validatedGedcomLines);
         }
         catch(Exception e){
                 System.out.println("Exception thrown during loadValidDataToArray, please investigate..");
@@ -36,7 +36,7 @@ public class GedcomProcessService {
         }
 
         try {
-        Data.processGedcomData(validatedGedcomLines, personList, familyList);
+        BeanProducer.processGedcomData(validatedGedcomLines, personList, familyList);
         }
         catch(Exception e){
                 System.out.println("Exception thrown during processGedcomData, please investigate..");
@@ -44,7 +44,7 @@ public class GedcomProcessService {
         }
 
         try {
-        ProcessedData.outputFamilyData(personList, familyList,FamilyDataFilename);
+        OutputDisplayer.displayData(personList, familyList);
         }
         catch(Exception e){
                 System.out.println("Exception thrown during outputFamilyData, please investigate..");

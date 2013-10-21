@@ -1,5 +1,5 @@
 package gedcom;
- 
+
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
@@ -12,26 +12,12 @@ public class FileLoader {
     
     static HashMap<String, String> hValidTags = new HashMap<String, String>();
 
-    public BufferedReader loadData(String Gedcomfile) throws Exception {
-
-    	BufferedReader readerGedcom = null;
-    	
-        try {
-        	readerGedcom = new BufferedReader(new FileReader(Gedcomfile));
-        } catch (IOException e) {
-            e.printStackTrace();
-        } 
-        
-        return readerGedcom;
-        
-    }    
-    
-    
-    public void loadValidDataToArray(String GedcomFilename, ArrayList<String>  GedcomLines) throws Exception {
+    static public void loadValidDataToArray(String GedcomFilename, ArrayList<String>  GedcomLines) {
 
         populateValidTags(hValidTags);
         File file = new File(GedcomFilename);
         BufferedReader reader = null;
+        String returnmsg = new String();
         int NumOfErrors = 0;
         
         try {
@@ -131,7 +117,7 @@ public class FileLoader {
         return asciiEncoder.canEncode(text);
     }
 
-    static void populateValidTags(HashMap<String, String> hm){		
+    static final void populateValidTags(HashMap<String, String> hm){		
 
         hm.put("INDI", "INDI");
         hm.put("NAME", "NAME");
