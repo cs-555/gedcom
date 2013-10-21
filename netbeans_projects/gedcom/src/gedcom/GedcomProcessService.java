@@ -1,24 +1,34 @@
 package gedcom;
  
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 public class GedcomProcessService {
 
     //adding this comment to test github commit
+   
     
-    // just put these here for development purposes
-    // private static String GedcomFilename = "C:/temp/My-Family-2-Sep-2013.ged";
-    private static String testFilename = "/Users/michaelcasey/Google Drive/Code/netbeans_projects/gedcom/src/gedcom/Project5_GEDCOM_GoodFormat.ged";
-    private static String FamilyDataFilename = "/Users/michaelcasey/Google Drive/Code/netbeans_projects/gedcom/src/gedcom/familydata.ged";    
+    public static String FilesPath = "";    
+    // private static String testFilename = "/Users/michaelcasey/Google Drive/Code/netbeans_projects/gedcom/src/gedcom/Project5_GEDCOM_GoodFormat.ged";
+    private static String testFilename = "Project5_GEDCOM_GoodFormat.ged";
+    private static String FamilyDataFilename = "familydata.ged";    // For testing purposes
 
     public static void main(String[] args) {
         String filename = new String();
 
+        File winPC = new File("C:/temp/" + testFilename);
+        if (winPC.exists()){  // Alan - this could be done better, but just this for a quick test of GitHub and some useful functionaltiy
+            FilesPath = "C:/temp/";
+        } else {  // Alan - assume it's Casey's Mac.  Could use other code here for other tests
+            FilesPath = "/Users/michaelcasey/Google Drive/Code/netbeans_projects/gedcom/src/gedcom/";
+        }
+        FamilyDataFilename = FilesPath + FamilyDataFilename;
+        
         if (args != null && args.length > 0) {
             filename = args[0];  //  commandline argument
         } else {
-            filename = testFilename;
+            filename = FilesPath + testFilename;
         }
 
         execute(filename);

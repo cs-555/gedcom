@@ -1,5 +1,6 @@
 package gedcom;
  
+import static gedcom.GedcomProcessService.FilesPath;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -138,8 +139,9 @@ public class BeanProducer {
         // DEVELOPMENT AID ONLY
         // not finished
         Writer BeanWriter = null;
-        String BeanOutFileName = "/Users/michaelcasey/Google Drive/Code/netbeans_projects/gedcom/src/gedcom/personbeans.txt";
-
+        // String BeanOutFileName = "/Users/michaelcasey/Google Drive/Code/netbeans_projects/gedcom/src/gedcom/personbeans.txt";
+        String BeanOutFileName = FilesPath + "personbeans.txt";
+        
         try{
             File beanfile = new File(BeanOutFileName);
             BeanWriter = new BufferedWriter(new FileWriter(beanfile));
@@ -183,7 +185,8 @@ public class BeanProducer {
         // DEVELOPMENT AID ONLY
         // not finished
         Writer BeanWriter = null;
-        String BeanOutFileName = "/Users/michaelcasey/Google Drive/Code/netbeans_projects/gedcom/src/gedcom/familybeans.txt";
+        // String BeanOutFileName = "/Users/michaelcasey/Google Drive/Code/netbeans_projects/gedcom/src/gedcom/familybeans.txt";
+        String BeanOutFileName = FilesPath + "familybeans.txt";
 
         try{
             File beanfile = new File(BeanOutFileName);
