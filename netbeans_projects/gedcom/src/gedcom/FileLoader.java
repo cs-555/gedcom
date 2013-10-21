@@ -8,11 +8,26 @@ import java.util.HashMap;
 
 /** @author Alan */
 
-public class Filedata {
+public class FileLoader {
     
     static HashMap<String, String> hValidTags = new HashMap<String, String>();
 
-    public static void loadValidDataToArray(String GedcomFilename, ArrayList<String>  GedcomLines) throws Exception {
+    public BufferedReader loadData(String Gedcomfile) throws Exception {
+
+    	BufferedReader readerGedcom = null;
+    	
+        try {
+        	readerGedcom = new BufferedReader(new FileReader(Gedcomfile));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } 
+        
+        return readerGedcom;
+        
+    }    
+    
+    
+    public void loadValidDataToArray(String GedcomFilename, ArrayList<String>  GedcomLines) throws Exception {
 
         populateValidTags(hValidTags);
         File file = new File(GedcomFilename);
