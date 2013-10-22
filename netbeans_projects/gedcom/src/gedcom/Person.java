@@ -1,6 +1,7 @@
 package gedcom;
  
 public class Person {
+    /** @author Ronny */
 
 	private String identifier = "";
 	private String idType = "";

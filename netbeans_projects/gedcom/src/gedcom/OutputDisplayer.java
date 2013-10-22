@@ -3,7 +3,10 @@ package gedcom;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class OutputDisplayer {
+        /** @author Joseph */
 	
 	public static void displayData(List<Person> lPerson, List<Family> lFamily ){
 		

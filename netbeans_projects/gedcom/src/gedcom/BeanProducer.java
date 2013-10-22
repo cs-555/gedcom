@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BeanProducer {
+    /** @author Casey unless otherwise noted */
     
     public static void processGedcomData(ArrayList<String>  validatedGedcomLines
                                          ,List<Person> personList 
@@ -136,10 +137,10 @@ public class BeanProducer {
     
     
     private static void printPersonBeanListToFile(List<Person> lPerson) {
+        /** @author Alan */
         // DEVELOPMENT AID ONLY
         // not finished
         Writer BeanWriter = null;
-        // String BeanOutFileName = "/Users/michaelcasey/Google Drive/Code/netbeans_projects/gedcom/src/gedcom/personbeans.txt";
         String BeanOutFileName = FilesPath + "personbeans.txt";
         
         try{
@@ -182,10 +183,10 @@ public class BeanProducer {
     }
     
     private static void printFamilyBeanListToFile(List<Family> lFamily) {
+        /** @author Alan */
         // DEVELOPMENT AID ONLY
         // not finished
         Writer BeanWriter = null;
-        // String BeanOutFileName = "/Users/michaelcasey/Google Drive/Code/netbeans_projects/gedcom/src/gedcom/familybeans.txt";
         String BeanOutFileName = FilesPath + "familybeans.txt";
 
         try{
