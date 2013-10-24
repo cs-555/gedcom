@@ -11,6 +11,7 @@
 2 NAME Me
 1 SUBN
 1 CHAR UTF-8
+0 NOTE Bio notes: Output: Individuals #10-12 have death before birth dates. The program should display this error for individuals with identifiers I10 through I12. Purpose : to demonstrate the program can catch errors in the GEDCOM file. Program should also not attached this note to any person node
 0 @I1@ INDI
 1 NAME Tom /Smith/
 2 GIVN Tom
@@ -19,7 +20,7 @@
 1 SEX M
 1 BIRT
 2 DATE 5 SEP 1977
-1 NOTE Bio notes: Output: Display each family member's info and their relationships. The program also displays 'invalid' for inivald tags not specified for the project. Purpose : to demonstrate the program can read GEDCOM file and determine valid/invalid tags, put the info into internal data structure and display each family member's info and their relationship
+1 NOTE Bio notes: Output: Display each family member's info and their relationships. The program also displays 'invalid' for inivald tags not specified for the project. Purpose : to demonstrate the program can read GEDCOM file and determine valid/invalid tags, put the info into internal data structure and display each family member's info and their relationship. This node is a syntax error
 1 FAMS @F1@
 1 FAMC @F2@
 0 @I2@ INDI
@@ -57,6 +58,9 @@
 1 SEX M
 1 BIRT
 2 DATE 10 AUG 1947
+1 DEAT
+2 DATE 10 JUN 2005
+0 NOTE Individual #5 added death date to test legitimate marriage w/ a now deceased person
 1 FAMS @F2@
 0 @I6@ INDI
 1 NAME Susan /Doe/
@@ -112,8 +116,14 @@
 1 HUSB @I8@
 1 WIFE @I7@
 1 CHIL @I9@
-1 NOTE Bio notes: Output: There are three individuals who have death dates before birth dates. The program should display this error for individuals with identifiers I10 through I12. Purpose : to demonstrate the program can catch errors in the GEDCOM file. 
+0 @F4@ FAM
+0 NOTE Family #4 is a death before marriage test record.  It might also double as a Grandfather to Granddaughter error if that is programmed
+1 HUSB @I5@
+1 WIFE @I4@
+1 MARR
+2 DATE 8 JUL 2000
 0 @I10@ INDI
+0 NOTE Individual #10 is a death before birth test record
 1 NAME Michael /Jackson/
 2 GIVN Michael 
 2 SURN Jackson
@@ -124,6 +134,7 @@
 1 DEAT
 2 DATE 10 MAY 2004
 0 @I11@ INDI
+0 NOTE Individual #11 is a death before birth test record
 1 NAME Samantha /Cabrera/
 2 GIVN Samantha
 2 SURN Cabrera
@@ -133,6 +144,7 @@
 1 DEAT
 2 DATE 15 APR 1975
 0 @I12@ INDI
+0 NOTE Individual #12 is a death before birth test record
 1 NAME James /Logan/
 2 GIVN James
 2 SURN Logan
