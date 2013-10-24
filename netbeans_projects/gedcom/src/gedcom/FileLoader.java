@@ -6,9 +6,8 @@ import java.nio.charset.CharsetEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/** @author Alan */
-
 public class FileLoader {
+    /** @author Alan unless otherwise noted */
     
     static HashMap<String, String> hValidTags = new HashMap<String, String>();
 
@@ -30,6 +29,11 @@ public class FileLoader {
                     NumOfErrors++;
                 }
             }
+            if (NumOfErrors > 0) {
+                System.out.println("\r\n" + NumOfErrors + " FILE ERRORS LISTED ABOVE" + "\r\n");
+                //System.console().writer().println("\r\n" + NumOfErrors + " FILE ERRORS LISTED ABOVE" + "\r\n");
+            }
+            
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -40,9 +44,6 @@ public class FileLoader {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-        if (NumOfErrors > 0) {
-            System.out.println("\r\n" + NumOfErrors + " FILE ERRORS LISTED ABOVE" + "\r\n");
         }
     }
 
@@ -116,8 +117,9 @@ public class FileLoader {
         CharsetEncoder asciiEncoder = Charset.forName("US-ASCII").newEncoder();
         return asciiEncoder.canEncode(text);
     }
-
+    
     static final void populateValidTags(HashMap<String, String> hm){		
+    /** @author Ronny */
 
         hm.put("INDI", "INDI");
         hm.put("NAME", "NAME");

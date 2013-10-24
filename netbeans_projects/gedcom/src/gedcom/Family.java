@@ -3,6 +3,7 @@ package gedcom;
 import java.util.ArrayList;
 
 public class Family {
+    /** @author Ronny */
 
 	private String identifier = "";
 	private String idType = "";

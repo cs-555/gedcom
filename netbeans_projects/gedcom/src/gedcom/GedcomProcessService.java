@@ -5,12 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GedcomProcessService {
-
-    //adding this comment to test github commit
-   
+    /** @author Ronny */
     
     public static String FilesPath = "";    
-    // private static String testFilename = "/Users/michaelcasey/Google Drive/Code/netbeans_projects/gedcom/src/gedcom/Project5_GEDCOM_GoodFormat.ged";
     private static String testFilename = "Project5_GEDCOM_GoodFormat.ged";
     private static String FamilyDataFilename = "familydata.ged";    // For testing purposes
 
