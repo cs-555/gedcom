@@ -11,6 +11,7 @@ import java.util.List;
 
 public class BeanProducer {
     /** @author Casey unless otherwise noted */
+    /** TODO - add tests and methods to handle notes */
     
     public static void processGedcomData(ArrayList<String>  validatedGedcomLines
                                          ,List<Person> personList 
