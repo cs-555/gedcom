@@ -1,28 +1,28 @@
 package gedcom;
  
+import static gedcom.GedcomProcessService.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-
 
 public class OutputDisplayer {
         /** @author Joseph */
 	
 	public static void displayData(List<Person> lPerson, List<Family> lFamily ){
 		
-		System.out.println("Person List:\n");
+		poutln("\r\nPerson List:\r\n");
         for ( int i = 0 ; i < lPerson.size() ; i++){
         	Person person = lPerson.get(i);
-        	System.out.println(  
+        	poutln(  
         			person.getIndi() + ": " + person.getName() + 
         			" (" + person.getBirt() + " - " + person.getDeat() + "), " + person.getSex()
                     );
         }
 	
-        System.out.println("\nFamily List:\n");
+        poutln("\r\nFamily List:\r\n");
         for ( int i = 0 ; i < lFamily.size() ; i++){
         	Family family = lFamily.get(i);
-        	System.out.println(
+        	poutln(
                     family.getIdentifier() + ": " + 
                     "Husband: " + findPeople(lPerson, family.getHusb()) + 
                     "; Wife: " + findPeople(lPerson, family.getWife()) + 
@@ -47,4 +47,24 @@ public class OutputDisplayer {
 		return names.trim();
 	}
 
+        // following 2 methods to allow multiple outputs w/single line throughout the program
+        public static void pout(String output) {
+            System.out.print(output);
+            try {
+                writer.write(output);
+            } catch (IOException ex) {
+                System.out.print("pout writer problem, please investigate");
+            }
+        }
+
+        public static void poutln(String output) {
+            System.out.println(output);
+            try {
+                writer.write(output);
+                writer.write("\r\n");
+            } catch (IOException ex) {
+                System.out.print("pout writer problem, please investigate");
+            }
+        }
+        
 }

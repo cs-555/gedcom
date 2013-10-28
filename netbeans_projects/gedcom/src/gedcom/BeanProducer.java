@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
+import static gedcom.OutputDisplayer.pout;
+import static gedcom.OutputDisplayer.poutln;
 
 public class BeanProducer {
     /** @author Casey unless otherwise noted */
@@ -21,8 +23,8 @@ public class BeanProducer {
         filterFamilyInfo(validatedGedcomLines,familyList);
         
         //for testing output
-        System.out.println("Number of families: " + familyList.size());
-        System.out.println("Number of persons: " + personList.size());        
+        poutln("Number of families: " + familyList.size());
+        poutln("Number of persons: " + personList.size());        
         printPersonBeanListToFile(personList);
         printFamilyBeanListToFile(familyList);
                    
