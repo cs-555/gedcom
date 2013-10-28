@@ -1,15 +1,21 @@
 package gedcom;
  
+import java.io.Writer;
 import java.io.File;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
+import static gedcom.OutputDisplayer.pout;
+import static gedcom.OutputDisplayer.poutln;
 
 public class GedcomProcessService {
     /** @author Ronny */
     
     public static String FilesPath = "";    
     private static String testFilename = "Project5_GEDCOM_GoodFormat.ged";
-    private static String FamilyDataFilename = "familydata.ged";    // For testing purposes
+    private static String FamilyDataFilename = "familydata.ged";
+    public static Writer writer = null;
 
     public static void main(String[] args) {
         String filename = new String();
@@ -36,6 +42,14 @@ public class GedcomProcessService {
         List<Family> familyList = new ArrayList<Family>();
         ArrayList<String> validatedGedcomLines = new ArrayList<String>();
 
+        try { // sets up writer for global access. See pout/poutln in class OutputDisplayer
+            File outfile = new File(FamilyDataFilename);
+            writer = new BufferedWriter(new FileWriter(outfile));
+        } catch (Exception e){
+            System.out.println("Exception thrown opening writer, please investigate..");
+            e.printStackTrace();
+        }
+
         try {
         FileLoader.loadValidDataToArray(filename,validatedGedcomLines);
         }
@@ -58,6 +72,15 @@ public class GedcomProcessService {
         catch(Exception e){
                 System.out.println("Exception thrown during outputFamilyData, please investigate..");
                 e.printStackTrace();
+        }
+        
+        try {
+            if (writer != null) {
+                writer.close();
+            }
+        } catch (Exception e){
+            System.out.println("Exception thrown trying to close writer, please investigate..");
+            e.printStackTrace();
         }
     }
 

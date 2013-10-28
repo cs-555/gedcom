@@ -5,6 +5,8 @@ import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
+import static gedcom.OutputDisplayer.pout;
+import static gedcom.OutputDisplayer.poutln;
 
 public class FileLoader {
     /** @author Alan unless otherwise noted */
@@ -16,7 +18,6 @@ public class FileLoader {
         populateValidTags(hValidTags);
         File file = new File(GedcomFilename);
         BufferedReader reader = null;
-        String returnmsg = new String();
         int NumOfErrors = 0;
         
         try {
@@ -30,7 +31,7 @@ public class FileLoader {
                 }
             }
             if (NumOfErrors > 0) {
-                System.out.println("\r\n" + NumOfErrors + " FILE ERRORS LISTED ABOVE" + "\r\n");
+                poutln("\r\n" + NumOfErrors + " FILE ERRORS LISTED ABOVE" + "\r\n");
                 //System.console().writer().println("\r\n" + NumOfErrors + " FILE ERRORS LISTED ABOVE" + "\r\n");
             }
             
@@ -106,7 +107,7 @@ public class FileLoader {
                 } // end of switch based on the fields
             } // end of for loop that checks the fields
             if (ErrorMsg.length() > 0 ) {
-                System.out.println(text + ErrorMsg);
+                poutln(text + ErrorMsg);
             }
         } // end of if ASCII check
         
