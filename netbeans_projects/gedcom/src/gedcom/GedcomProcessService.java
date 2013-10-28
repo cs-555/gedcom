@@ -8,25 +8,32 @@ import java.util.ArrayList;
 import java.util.List;
 import static gedcom.OutputDisplayer.pout;
 import static gedcom.OutputDisplayer.poutln;
+import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
 
 public class GedcomProcessService {
     /** @author Ronny */
     
     public static String FilesPath = "";    
-    private static String testFilename = "Project5_GEDCOM_GoodFormat.ged";
-    private static String FamilyDataFilename = "familydata.ged";
+    public static String testFilename = "Project5_GEDCOM_GoodFormat.ged";
+    public static String FamilyDataFilename = "familydata.ged";
     public static Writer writer = null;
 
     public static void main(String[] args) {
-        String filename = new String();
+        String filename;
 
+        Path pfamDatasrc;
+        pfamDatasrc = FileSystems.getDefault().getPath("C:/temp");
+
+        // Set the FilesPath for different platforms
         File winPC = new File("C:/temp/" + testFilename);
         if (winPC.exists()){  // Alan - this could be done better, but just this for a quick test of GitHub and some useful functionaltiy
             FilesPath = "C:/temp/";
         } else {  // Alan - assume it's Casey's Mac.  Could use other code here for other tests
             FilesPath = "/Users/michaelcasey/Google Drive/Code/netbeans_projects/gedcom/src/gedcom/";
         }
-        FamilyDataFilename = FilesPath + FamilyDataFilename;
+        // FamilyDataFilename = FilesPath + FamilyDataFilename;
         
         if (args != null && args.length > 0) {
             filename = args[0];  //  commandline argument
@@ -38,16 +45,17 @@ public class GedcomProcessService {
     }
 
     private static void execute(String filename) {
-        List<Person> personList = new ArrayList<Person>();
-        List<Family> familyList = new ArrayList<Family>();
-        ArrayList<String> validatedGedcomLines = new ArrayList<String>();
+        List<Person> personList = new ArrayList<>();
+        List<Family> familyList = new ArrayList<>();
+        ArrayList<String> validatedGedcomLines = new ArrayList<>();
+        //ArrayList<String> validatedGedcomLines = new ArrayList<String>();
 
         try { // sets up writer for global access. See pout/poutln in class OutputDisplayer
-            File outfile = new File(FamilyDataFilename);
+            File outfile = new File(FilesPath + FamilyDataFilename);
             writer = new BufferedWriter(new FileWriter(outfile));
-        } catch (Exception e){
+        } catch (IOException e){
             System.out.println("Exception thrown opening writer, please investigate..");
-            e.printStackTrace();
+            // e.printStackTrace();
         }
 
         try {
@@ -55,7 +63,7 @@ public class GedcomProcessService {
         }
         catch(Exception e){
                 System.out.println("Exception thrown during loadValidDataToArray, please investigate..");
-                e.printStackTrace();
+                // e.printStackTrace();
         }
 
         try {
@@ -63,24 +71,25 @@ public class GedcomProcessService {
         }
         catch(Exception e){
                 System.out.println("Exception thrown during processGedcomData, please investigate..");
-                e.printStackTrace();
+                //e.printStackTrace();
         }
 
         try {
-        OutputDisplayer.displayData(personList, familyList);
+            // COMMENT OUT THE NEXT LINE TO PROVE THE REFEACTOR TEST WORKS CORRECTLY
+            OutputDisplayer.displayData(personList, familyList);
         }
         catch(Exception e){
                 System.out.println("Exception thrown during outputFamilyData, please investigate..");
-                e.printStackTrace();
+                //e.printStackTrace();
         }
         
         try {
             if (writer != null) {
                 writer.close();
             }
-        } catch (Exception e){
+        } catch (IOException e){
             System.out.println("Exception thrown trying to close writer, please investigate..");
-            e.printStackTrace();
+            //e.printStackTrace();
         }
     }
 

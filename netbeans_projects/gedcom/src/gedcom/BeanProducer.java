@@ -98,7 +98,8 @@ public class BeanProducer {
             switch (personlinearray[1]) {              
                 case "NAME":        person.setName(personlinearray[2] + " "+ personlinearray[3].replace("/", ""));
                          break;
-                case "SEX":         person.setSex(personlinearray[2]);
+                case "SEX":         // COMMENTING OUT THE NEXT LINE IS A GOOD TEST TO SHOW THE LOGIC OF THE REFACTOR TEST WORKS FOR JUST THE PERSON BEAN (& FAM OUTPUT)
+                                    person.setSex(personlinearray[2]);
                          break;
                 case "BIRT":        person.setBirt(personarraylist.get(i+1).toString().split(" ")[2] + " " + personarraylist.get(i+1).toString().split(" ")[3] +" "+personarraylist.get(i+1).toString().split(" ")[4] );
                          break;
@@ -130,7 +131,8 @@ public class BeanProducer {
                          break;
                 case "DIV":         family.setDiv(familyarraylist.get(i+1).toString().split(" ")[2] + " " + familyarraylist.get(i+1).toString().split(" ")[3] +" "+familyarraylist.get(i+1).toString().split(" ")[4]);
                          break;
-                case "MARR":        family.setMarr(familyarraylist.get(i+1).toString().split(" ")[2] + " " + familyarraylist.get(i+1).toString().split(" ")[3] +" "+familyarraylist.get(i+1).toString().split(" ")[4]);
+                case "MARR":        // COMMENTING OUT THE NEXT LINE IS A GOOD TEST TO SHOW THE LOGIC OF THE REFACTOR TEST WORKS FOR JUST THE FAMILY BEAN (& FAM OUTPUT)
+                                    family.setMarr(familyarraylist.get(i+1).toString().split(" ")[2] + " " + familyarraylist.get(i+1).toString().split(" ")[3] +" "+familyarraylist.get(i+1).toString().split(" ")[4]);
                          break;   
                 default: break;
             }; 
