@@ -74,6 +74,7 @@ public class FileLoader {
                             } else {
                                 if ((fields[1].equals("TRLR")) || (fields[1].equals("NOTE"))) { // it's OK
                                 } else {
+                                    // COMMENTING OUT THE NEXT LINE IS A GOOD TEST TO SHOW THE REFACTORING TEST WORKS FOR ONLY THE FAMILY OUTPUT FILE
                                     ErrorMsg += " <0 records w/ ID's must be INDI, FAM, TRLR or NOTE>";
                                     TestResult = false;
                                 }
