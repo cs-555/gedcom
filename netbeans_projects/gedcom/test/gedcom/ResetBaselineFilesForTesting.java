@@ -50,9 +50,9 @@ public class ResetBaselineFilesForTesting {
         File baseLnfamData = new File(FilesPath + newBaseLine + FamilyDataFilename);
         File baseLnpersBeans = new File(FilesPath + newBaseLine + personBeanFilename);
         File baseLnfamBeans = new File(FilesPath + newBaseLine + familyBeanFilename);
-        if (baseLnfamData.exists()) { filesExist = false || true; }
-        if (baseLnpersBeans.exists()) { filesExist = false || true; } 
-        if (baseLnfamBeans.exists()) { filesExist = false || true; }
+        if (baseLnfamData.exists()) { filesExist = true; }
+        if (baseLnpersBeans.exists()) { filesExist = true; } 
+        if (baseLnfamBeans.exists()) { filesExist = true; }
         System.out.println(newBaseLine + FamilyDataFilename + " exists: " + baseLnfamData.exists());
         System.out.println(newBaseLine + personBeanFilename + " exists: " + baseLnpersBeans.exists());
         System.out.println(newBaseLine + familyBeanFilename + " exists: " + baseLnfamBeans.exists());
@@ -66,14 +66,17 @@ public class ResetBaselineFilesForTesting {
             System.out.println("No " + newBaseLine + "files are present. Baseline reset continuing.");
         }
         
+        // Test line to confirm to logic below
+        // FamilyDataFilename = "a" + FamilyDataFilename;
+        
         // Confirm all the required files exist to create baseline files
         filesExist = true;
         File famData = new File(FilesPath + FamilyDataFilename);
         File persBeans = new File(FilesPath + personBeanFilename);
         File famBeans = new File(FilesPath + familyBeanFilename);
         if (!famData.exists()) { filesExist = false; }
-        if (!persBeans.exists()) { filesExist = (filesExist && false); }
-        if (!famBeans.exists()) { filesExist = (filesExist && false); }
+        if (!persBeans.exists()) { filesExist = false; }
+        if (!famBeans.exists()) { filesExist = false; }
         System.out.println(FamilyDataFilename + "exists: " + famData.exists());
         System.out.println(personBeanFilename + "exists: " + persBeans.exists());
         System.out.println(familyBeanFilename + "exists: " + famBeans.exists());
