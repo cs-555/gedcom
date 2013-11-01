@@ -53,15 +53,15 @@ public class OutputDisplayerTest {
     }
 
     /**
-     * Test of findPeople method, of class OutputDisplayer.
+     * Test of findPerson method, of class OutputDisplayer.
      */
     @Test
-    public void testFindPeople() {
-        System.out.println("findPeople");
+    public void testFindPerson() {
+        System.out.println("findPerson");
         List<Person> lPerson = null;
-        String index = "";
-        String expResult = "";
-        String result = OutputDisplayer.findPeople(lPerson, index);
+        String ID = "";
+        Person expResult = null;
+        Person result = OutputDisplayer.findPersonNode(lPerson, ID);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
