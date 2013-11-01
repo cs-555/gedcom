@@ -57,8 +57,9 @@ public class Family {
 		return chil.get(i);
 	}
 
-	public String[] getAllChildren() {
-	    return chil.toArray(new String[chil.size()]);        
+	public ArrayList<String> getAllChildren() {
+	    //return chil.toArray(new String[chil.size()]);        
+	    return chil;
 	}
 
 	public String printAllChildren() {
