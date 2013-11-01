@@ -61,7 +61,7 @@ public class OutputDisplayerTest {
         List<Person> lPerson = null;
         String ID = "";
         Person expResult = null;
-        Person result = OutputDisplayer.findPersonNode(lPerson, ID);
+        Person result = OutputDisplayer.findPersonNode(ID, lPerson);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

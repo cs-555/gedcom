@@ -20,7 +20,7 @@ public class ResetBaselineFilesForTesting {
 
     // YOU MUST SET THIS STRING TO A NEW BASELINE WHEN THE PROGRAM IS CHANGED
     // THE BASELINE FILES ARE ONLY USED WHEN PERFROMING REFACTORING
-    public static String newBaseLine = "baseline1";
+    public static String newBaseLine = "baseline2";
     public static String personBeanFilename = "personbeans.txt";  // could be made global public in GedcomProcessService.java & chg in BeanProducer
     public static String familyBeanFilename = "familybeans.txt";  // could be made global public in GedcomProcessService.java & chg in BeanProducer
     
