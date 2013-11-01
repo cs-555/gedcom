@@ -223,9 +223,9 @@ public class FamilyTest {
     public void testGetAllChildren() {
         System.out.println("getAllChildren");
         Family instance = new Family();
-        String[] expResult = null;
-        String[] result = instance.getAllChildren();
-        assertArrayEquals(expResult, result);
+        ArrayList<String> expResult = null;
+        ArrayList<String> result = instance.getAllChildren();
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

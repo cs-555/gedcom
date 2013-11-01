@@ -65,6 +65,8 @@ public class GedcomProcessServiceTest {
         
     }
 
+    // UPDATED: compare is line by line
+    // An error displays both lines with 1> and 2> 
     private static boolean CompareFiles(
         String file1, 
         String file2) {
@@ -74,19 +76,34 @@ public class GedcomProcessServiceTest {
         String lineb;
         StringBuilder sba = new StringBuilder();
         StringBuilder sbb = new StringBuilder();
+        Boolean compareResult = true;
 
         try {
             FileInputStream filea = new FileInputStream(file1);
             BufferedReader inputb;
             try (BufferedReader inputa = new BufferedReader
                             (new InputStreamReader(filea))) {
-                while ((linea = inputa.readLine()) != null) {
-                    sba.append(linea);
-                }   FileInputStream fileb = new FileInputStream(file2);
+//                while ((linea = inputa.readLine()) != null) {
+//                    sba.append(linea);
+//                    sba.append("\n\r");
+//                }   FileInputStream fileb = new FileInputStream(file2);
+//                inputb = new BufferedReader
+//                            (new InputStreamReader(fileb));
+//                while ((lineb = inputb.readLine()) != null) {
+//                    sbb.append(lineb);
+//                    sbb.append("\r\n");
+//                }
+                FileInputStream fileb = new FileInputStream(file2);
                 inputb = new BufferedReader
                             (new InputStreamReader(fileb));
-                while ((lineb = inputb.readLine()) != null) {
+                while ( ((linea = inputa.readLine()) != null) && ((lineb = inputb.readLine()) != null) ) {
+                    sba.append(linea);
                     sbb.append(lineb);
+                    compareResult = compareResult && (linea.equals(lineb));
+                    if (!compareResult) {
+                        System.out.println("1> " + linea);
+                        System.out.println("2> " + lineb);
+                    }
                 }
             }
             inputb.close();
@@ -103,7 +120,9 @@ public class GedcomProcessServiceTest {
                 // e.printStackTrace();
             }
         }
-        return(sba.toString().equals(sbb.toString()));
+        //compareResult = compareResult && sba.toString().equals(sbb.toString());
+        //compareResult = compareResult && (sba.length() == sbb.length());
+        return(compareResult);
     }
 
     @BeforeClass
