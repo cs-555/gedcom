@@ -53,11 +53,11 @@ public class OutputDisplayerTest {
     }
 
     /**
-     * Test of findPerson method, of class OutputDisplayer.
+     * Test of findPersonNode method, of class OutputDisplayer.
      */
     @Test
-    public void testFindPerson() {
-        System.out.println("findPerson");
+    public void testFindPersonNode() {
+        System.out.println("findPersonNode");
         List<Person> lPerson = null;
         String ID = "";
         Person expResult = null;
