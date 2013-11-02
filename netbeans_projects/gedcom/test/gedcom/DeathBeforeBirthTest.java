@@ -43,9 +43,11 @@ public class DeathBeforeBirthTest {
     public void testGetDeathBeforeBirthErrors() {
         System.out.println("getDeathBeforeBirthErrors");
         DeathBeforeBirth instance = new DeathBeforeBirth();
-        String expResult = 3;
-        String result = instance.getDeathBeforeBirthErrors().size;
-        assertEquals(expResult, result);
+        
+        //test quantity of errors
+        Integer expNumberOfErrors = 3;
+        Integer result = instance.getDeathBeforeBirthErrors().size();
+        assertEquals(expNumberOfErrors, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }    
