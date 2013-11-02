@@ -103,7 +103,7 @@ public class BeanProducer {
                          break;
                 case "BIRT":        person.setBirt(personarraylist.get(i+1).toString().split(" ")[2] + " " + personarraylist.get(i+1).toString().split(" ")[3] +" "+personarraylist.get(i+1).toString().split(" ")[4] );
                          break;
-                case "DEATHDATE":   person.setBirt(personarraylist.get(i+1).toString().split(" ")[2] + " " + personarraylist.get(i+1).toString().split(" ")[3] +" "+personarraylist.get(i+1).toString().split(" ")[4] );
+                case "DEAT":        person.setDeat(personarraylist.get(i+1).toString().split(" ")[2] + " " + personarraylist.get(i+1).toString().split(" ")[3] +" "+personarraylist.get(i+1).toString().split(" ")[4] );
                          break;
                 case "FAMS":        person.setFams(personlinearray[2]);
                          break;

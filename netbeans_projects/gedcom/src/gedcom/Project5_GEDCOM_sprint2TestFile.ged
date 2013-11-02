@@ -11,7 +11,7 @@
 2 NAME Me
 1 SUBN
 1 CHAR UTF-8
-0 NOTE Bio notes: Output: Individuals #10-12 have death before birth dates. The program should display this error for individuals with identifiers I10 through I12. Purpose : to demonstrate the program can catch errors in the GEDCOM file. Program should also not attached this note to any person node
+0 NOTE Bio notes: Output: Individuals #10-12 have death before birth dates. The program should display this error for individuals with identifiers I10 through I12. Purpose : to demonstrate the program can catch errors in the GEDCOM file. Program should also not attach this note to any person node
 0 @I1@ INDI
 1 NAME Tom /Smith/
 2 GIVN Tom
@@ -31,7 +31,10 @@
 1 SEX F
 1 BIRT
 2 DATE 3 SEP 1981
+1 DEAT
+2 DATE 3 Sep 1999
 1 FAMS @F1@
+0 NOTE Individual #2 given a death date to test death before marriage
 0 @I3@ INDI
 1 NAME John Smith /Smith/
 2 GIVN John Smith
@@ -59,8 +62,8 @@
 1 BIRT
 2 DATE 10 AUG 1947
 1 DEAT
-2 DATE 10 JUN 2005
-0 NOTE Individual #5 added death date to test legitimate marriage w/ a now deceased person
+2 DATE 10 JUN 2000
+0 NOTE Individual #5 given a death date to test legitimate marriage w/ a now deceased person
 1 FAMS @F2@
 0 @I6@ INDI
 1 NAME Susan /Doe/
@@ -83,6 +86,8 @@
 1 FAMC @F2@
 0 @I8@ INDI
 1 NAME John /Bernard/
+1 BIRT
+2 DATE 1 OCT 1973
 2 GIVN John
 2 SURN Bernard
 2 _MARNM Bernard
@@ -100,28 +105,32 @@
 0 @F1@ FAM
 1 HUSB @I1@
 1 WIFE @I2@
-1 CHIL @I3@
-1 CHIL @I4@
 1 MARR
 2 DATE 10 JAN 2000
+1 CHIL @I3@
+1 CHIL @I4@
 2 PLAC testing location
 1 _CURRENT Y
 0 @F2@ FAM
 1 HUSB @I5@
 1 WIFE @I6@
+1 MARR
+2 DATE 18 JUN 1971
 1 CHIL @I1@
 1 CHIL @I7@
 1 _CURRENT Y
 0 @F3@ FAM
 1 HUSB @I8@
 1 WIFE @I7@
+1 MARR
+2 DATE 12 NOV 1997
 1 CHIL @I9@
 0 @F4@ FAM
 0 NOTE Family #4 is a death before marriage test record.  It might also double as a Grandfather to Granddaughter error if that is programmed
 1 HUSB @I5@
 1 WIFE @I4@
 1 MARR
-2 DATE 8 JUL 2000
+2 DATE 8 JUL 2002
 0 @I10@ INDI
 0 NOTE Individual #10 is a death before birth test record
 1 NAME Michael /Jackson/
