@@ -47,12 +47,12 @@ public class DeathBeforeBirthTest {
     @Test
     public void testGetDeathBeforeBirthErrors() {
         System.out.println("getDeathBeforeBirthErrors");
-        List<Person> lperson = null;
-        ArrayList expResult = null;
-        ArrayList result = DeathBeforeBirth.getDeathBeforeBirthErrors(lperson);
-        assertEquals(expResult, result);
+        //List<Person> lperson = null;
+        //ArrayList expResult = null;
+        //ArrayList result = DeathBeforeBirth.getDeathBeforeBirthErrors(lperson);
+        //assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -61,13 +61,11 @@ public class DeathBeforeBirthTest {
     @Test
     public void testIsBirthAfterDeath() {
         System.out.println("isBirthAfterDeath");
-        GregorianCalendar birthDate = null;
-        GregorianCalendar deathDate = null;
-        boolean expResult = false;
+        GregorianCalendar birthDate = new GregorianCalendar(2013,10,10);
+        GregorianCalendar deathDate = new GregorianCalendar(2012,10,10);
+        boolean expResult = true;
         boolean result = DeathBeforeBirth.isBirthAfterDeath(birthDate, deathDate);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -76,12 +74,10 @@ public class DeathBeforeBirthTest {
     @Test
     public void testFormatBirthdate() {
         System.out.println("formatBirthdate");
-        String lpersonBirthdate = "";
-        GregorianCalendar expResult = null;
+        String lpersonBirthdate = "3 NOV 2013";
+        GregorianCalendar expResult = new GregorianCalendar(2013,10,3);
         GregorianCalendar result = DeathBeforeBirth.formatBirthdate(lpersonBirthdate);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -90,12 +86,10 @@ public class DeathBeforeBirthTest {
     @Test
     public void testFormatDeathdate() {
         System.out.println("formatDeathdate");
-        String lpersonDeathDate = "";
-        GregorianCalendar expResult = null;
+        String lpersonDeathDate = "3 SEP 2013";
+        GregorianCalendar expResult = new GregorianCalendar(2013,8,3);
         GregorianCalendar result = DeathBeforeBirth.formatDeathdate(lpersonDeathDate);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -104,12 +98,10 @@ public class DeathBeforeBirthTest {
     @Test
     public void testGetMonthInteger() {
         System.out.println("getMonthInteger");
-        String month = "";
-        Integer expResult = null;
+        String month = "NOV";
+        Integer expResult = 10;
         Integer result = DeathBeforeBirth.getMonthInteger(month);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
