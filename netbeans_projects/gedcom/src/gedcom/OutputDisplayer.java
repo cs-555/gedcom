@@ -21,6 +21,27 @@ public class OutputDisplayer {
         printPersonNode(lPerson);
         printFamilyNode(lFamily, lPerson);
         printDeathBeforeMarriageErrors(lFamily, lPerson);
+        printDeathBeforeBirthErrors(lPerson);
+        
+    }
+    
+    public static void printDeathBeforeBirthErrors(List<Person> lPerson){      
+        
+        
+        try {
+            ArrayList<Person> results = DeathBeforeBirth.getDeathBeforeBirthErrors(lPerson);
+              
+            System.out.println("Death Before Birth Errors: \n");
+            for (int i = 0; i < results.size(); i++){
+                pout("Individal "+ results.get(i).getIndi() + " " +  
+                lPerson.get(i).getName() + "'s " + 
+                "birthdate "+ results.get(i).getBirt() + " " + 
+                "is after their deathdate " + results.get(i).getDeat() + ".\n");
+            }
+        }
+        catch(Exception e){
+             System.out.println("Exception thrown during getDeathBeforeBirthErrors, please investigate..");
+        } 
         
     }
 

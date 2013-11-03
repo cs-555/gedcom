@@ -7,7 +7,6 @@
 package gedcom;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Calendar;
 import java.util.GregorianCalendar;
 /**
  *
@@ -17,7 +16,7 @@ public class DeathBeforeBirth {
     
     public static ArrayList getDeathBeforeBirthErrors(List<Person> lperson){
         
-        ArrayList bdateAfterDeathErrorsList = new ArrayList();
+        ArrayList<Person> bdateAfterDeathErrorsList = new ArrayList<Person>();
         for(int i = 0; i < lperson.size(); i++ ){
             
            if ( !lperson.get(i).getBirt().equals("") && !lperson.get(i).getDeat().equals("") ){
@@ -26,15 +25,12 @@ public class DeathBeforeBirth {
                 GregorianCalendar bdateFull = formatBirthdate(lperson.get(i).getBirt());
                 //get deathdate
                 GregorianCalendar deathDateFull = formatDeathdate(lperson.get(i).getDeat());
-
+                //check birth after death
                 if (isBirthAfterDeath(bdateFull, deathDateFull) ){
-                    bdateAfterDeathErrorsList.add(lperson);
-                    System.out.println("Person " + lperson.get(i).getIndi() + " Birth : "+ bdateFull.getTime() + "  Deathdate : "+ deathDateFull.getTime());
-                }  
+                    bdateAfterDeathErrorsList.add(lperson.get(i));
+                }               
            }
-
-        }
-       
+        }        
         return bdateAfterDeathErrorsList;
     }
     
