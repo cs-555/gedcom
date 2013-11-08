@@ -22,7 +22,7 @@ public class OutputDisplayer {
         printFamilyNode(lFamily, lPerson);
         printDeathBeforeMarriageErrors(lFamily, lPerson);
         printDeathBeforeBirthErrors(lPerson);
-        
+        printMarrToSibErrors(lFamily, lPerson);
     }
     
     public static void printDeathBeforeBirthErrors(List<Person> lPerson){      
@@ -170,6 +170,29 @@ public class OutputDisplayer {
         } catch (IOException ex) {
             System.out.print("pout writer problem, please investigate");
         }
+    }
+
+    private static void printMarrToSibErrors(List<Family> lFamily,List<Person> lPerson) {
+        Family familyNode;
+        Person personNode;
+        String husb, wife;
+        poutln("\r\nMarriage to a sibling test:\r\n");
+        for ( int i = 0 ; i < lFamily.size() ; i++){
+            familyNode = lFamily.get(i);
+            husb = familyNode.getHusb();
+            wife = familyNode.getWife();
+            for ( int j = 0 ; j < lFamily.size() ; j++){
+                familyNode = lFamily.get(j);
+                if ((familyNode.printAllChildren().indexOf(husb) != -1) && (familyNode.printAllChildren().indexOf(wife) != -1)) {
+                    pout("In family " + familyNode.getIdentifier().replaceAll("@", "").replaceAll("F", "") + " ");
+                        pout(findPersonNode(husb, lPerson).getName());
+                        pout(" and ");
+                        pout(findPersonNode(wife, lPerson).getName());
+                        poutln(" are siblings. ");
+                }   
+            }
+        }
+        pout("\r\n");
     }
 
 }

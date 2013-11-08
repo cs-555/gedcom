@@ -17,7 +17,8 @@ public class GedcomProcessService {
     
     public static String FilesPath = "";    
     //public static String testFilename = "Project5_GEDCOM_sprint1TestFile.ged";
-    public static String testFilename = "Project5_GEDCOM_sprint2TestFile.ged";
+    //public static String testFilename = "Project5_GEDCOM_sprint2TestFile.ged";
+    public static String testFilename = "Project5_GEDCOM_sprint3TestFile.ged";
     public static String FamilyDataFilename = "familydata.ged";
     public static Writer writer = null;
 
