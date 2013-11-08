@@ -1,0 +1,88 @@
+0 HEAD <0 records w/ ID's must be INDI, FAM, TRLR or NOTE> <invalid tag>
+1 SOUR Family Echo <invalid tag>
+2 WWW http://www.familyecho.com/ <Level 2 records must DATE> <invalid tag>
+1 FILE Family 2 <invalid tag>
+1 DATE 5 OCT 2013 <DATE records must be level 2>
+1 DEST ANSTFILE <invalid tag>
+1 GEDC <invalid tag>
+2 VERS 5.5.1 <Level 2 records must DATE> <invalid tag>
+2 FORM LINEAGE-LINKED <Level 2 records must DATE> <invalid tag>
+1 SUBM @I1@ <invalid tag>
+2 NAME Me <Level 2 records must DATE>
+1 SUBN <invalid tag>
+1 CHAR UTF-8 <invalid tag>
+2 GIVN Tom <Level 2 records must DATE> <invalid tag>
+2 SURN Smith <Level 2 records must DATE> <invalid tag>
+2 _MARNM Smith <Level 2 records must DATE> <invalid tag>
+1 NOTE Bio notes: Output: Display each family member's info and their relationships. The program also displays 'invalid' for inivald tags not specified for the project. Purpose : to demonstrate the program can read GEDCOM file and determine valid/invalid tags, put the info into internal data structure and display each family member's info and their relationship. This node is a syntax error <NOTE records must be level 0>
+2 GIVN Mary <Level 2 records must DATE> <invalid tag>
+2 SURN Rosensteel <Level 2 records must DATE> <invalid tag>
+2 _MARNM Smith <Level 2 records must DATE> <invalid tag>
+2 GIVN John Smith <Level 2 records must DATE> <invalid tag>
+2 SURN Smith <Level 2 records must DATE> <invalid tag>
+2 _MARNM Smith <Level 2 records must DATE> <invalid tag>
+2 GIVN Jennifer Smith <Level 2 records must DATE> <invalid tag>
+2 SURN Smith <Level 2 records must DATE> <invalid tag>
+2 _MARNM Smith <Level 2 records must DATE> <invalid tag>
+2 GIVN George <Level 2 records must DATE> <invalid tag>
+2 SURN Smith <Level 2 records must DATE> <invalid tag>
+2 _MARNM Smith <Level 2 records must DATE> <invalid tag>
+2 GIVN Susan <Level 2 records must DATE> <invalid tag>
+2 SURN Doe <Level 2 records must DATE> <invalid tag>
+2 _MARNM Smith <Level 2 records must DATE> <invalid tag>
+2 GIVN Julie <Level 2 records must DATE> <invalid tag>
+2 SURN Smith <Level 2 records must DATE> <invalid tag>
+2 _MARNM Bernard <Level 2 records must DATE> <invalid tag>
+2 GIVN John <Level 2 records must DATE> <invalid tag>
+2 SURN Bernard <Level 2 records must DATE> <invalid tag>
+2 _MARNM Bernard <Level 2 records must DATE> <invalid tag>
+2 GIVN David <Level 2 records must DATE> <invalid tag>
+2 SURN Bernard <Level 2 records must DATE> <invalid tag>
+2 _MARNM Bernard <Level 2 records must DATE> <invalid tag>
+2 PLAC testing location <Level 2 records must DATE> <invalid tag>
+1 _CURRENT Y <invalid tag>
+1 _CURRENT Y <invalid tag>
+2 GIVN Michael  <Level 2 records must DATE> <invalid tag>
+2 SURN Jackson <Level 2 records must DATE> <invalid tag>
+2 _MARNM Jackson <Level 2 records must DATE> <invalid tag>
+2 GIVN Samantha <Level 2 records must DATE> <invalid tag>
+2 SURN Cabrera <Level 2 records must DATE> <invalid tag>
+2 GIVN James <Level 2 records must DATE> <invalid tag>
+2 SURN Logan <Level 2 records must DATE> <invalid tag>
+1 _CURRENT Y <invalid tag>
+
+52 FILE ERRORS LISTED ABOVE
+
+Number of families: 4
+Number of persons: 12
+
+Person List:
+
+@I1@: Tom Smith (5 SEP 1977 - ), M
+@I2@: Mary Rosensteel (3 SEP 1981 - 3 SEP 1999), F
+@I3@: John Smith (10 MAY 2005 - ), M
+@I4@: Jennifer Smith (30 NOV 2007 - ), F
+@I5@: George Smith (10 AUG 1947 - 10 JUN 2000), M
+@I6@: Susan Doe (27 JUL 1950 - ), F
+@I7@: Julie Smith (15 APR 1975 - ), F
+@I8@: John Bernard (1 OCT 1973 - ), M
+@I9@: David Bernard (5 FEB 2004 - ), M
+@I10@: Michael Jackson (10 MAY 2005 - 10 MAY 2004), M
+@I11@: Samantha Cabrera (23 DEC 1980 - 15 APR 1975), F
+@I12@: James Logan (12 NOV 2013 - 4 MAR 2012), M
+
+Family List:
+
+@F1@: Husband: Tom Smith,; Wife: Mary Rosensteel,; Married: 10 JAN 2000; Children: John Smith, Jennifer Smith,
+@F2@: Husband: George Smith,; Wife: Susan Doe,; Married: 18 JUN 1971; Children: Tom Smith, Julie Smith,
+@F3@: Husband: John Bernard,; Wife: Julie Smith,; Married: 12 NOV 1997; Children: David Bernard,
+@F4@: Husband: George Smith,; Wife: Jennifer Smith,; Married: 8 JUL 2002
+
+Death before Marriage test
+
+In family 1 Mary Rosensteel died on Sep 03 1999 before the marriage date of Jan 10 2000
+In family 4 George Smith died on Jun 10 2000 before the marriage date of Jul 08 2002
+
+Individal @I10@ Tom Smith's birthdate 10 MAY 2005 is after their deathdate 10 MAY 2004.
+Individal @I11@ Mary Rosensteel's birthdate 23 DEC 1980 is after their deathdate 15 APR 1975.
+Individal @I12@ John Smith's birthdate 12 NOV 2013 is after their deathdate 4 MAR 2012.

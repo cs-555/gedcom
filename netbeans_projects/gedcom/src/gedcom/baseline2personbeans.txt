@@ -1,0 +1,14 @@
+Person Bean Data
+
+Person 0 ; @I1@ ; Tom Smith ; M ; 5 SEP 1977 ;  ; @F2@ ; @F1@
+Person 1 ; @I2@ ; Mary Rosensteel ; F ; 3 SEP 1981 ; 3 SEP 1999 ;  ; @F1@
+Person 2 ; @I3@ ; John Smith ; M ; 10 MAY 2005 ;  ; @F1@ ; 
+Person 3 ; @I4@ ; Jennifer Smith ; F ; 30 NOV 2007 ;  ; @F1@ ; 
+Person 4 ; @I5@ ; George Smith ; M ; 10 AUG 1947 ; 10 JUN 2000 ;  ; @F2@
+Person 5 ; @I6@ ; Susan Doe ; F ; 27 JUL 1950 ;  ;  ; @F2@
+Person 6 ; @I7@ ; Julie Smith ; F ; 15 APR 1975 ;  ; @F2@ ; @F3@
+Person 7 ; @I8@ ; John Bernard ; M ; 1 OCT 1973 ;  ;  ; @F3@
+Person 8 ; @I9@ ; David Bernard ; M ; 5 FEB 2004 ;  ; @F3@ ; 
+Person 9 ; @I10@ ; Michael Jackson ; M ; 10 MAY 2005 ; 10 MAY 2004 ;  ; 
+Person 10 ; @I11@ ; Samantha Cabrera ; F ; 23 DEC 1980 ; 15 APR 1975 ;  ; 
+Person 11 ; @I12@ ; James Logan ; M ; 12 NOV 2013 ; 4 MAR 2012 ;  ; 
