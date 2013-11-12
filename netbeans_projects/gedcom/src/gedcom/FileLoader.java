@@ -11,29 +11,29 @@ import static gedcom.OutputDisplayer.poutln;
 public class FileLoader {
     /** @author Alan unless otherwise noted */
     
-    static HashMap<String, String> hValidTags = new HashMap<String, String>();
+    static HashMap<String, String> hValidTags = new HashMap<>();
 
-    static public void loadValidDataToArray(String GedcomFilename, ArrayList<String>  GedcomLines) {
+    static public void loadValidDataToArray(String filespath, ArrayList<String>  GedcomLines) {
 
-        populateValidTags(hValidTags);
-        File file = new File(GedcomFilename);
         BufferedReader reader = null;
-        int NumOfErrors = 0;
+        populateValidTags(hValidTags);
+        File directory = new File(filespath);
         
         try {
-            reader = new BufferedReader(new FileReader(file));
-            String line = null;
-            while ((line = reader.readLine()) != null) {
-                if (LineOK(line)) {
-                    GedcomLines.add(line);
-                } else {
-                    NumOfErrors++;
+            //poutln("start dir list");
+            FilenameFilter myfilter = new FilenameFilter(){
+                @Override
+                public boolean accept(File dir, String name){
+                    return name.endsWith(".ged");
                 }
+            };
+            String[] filelist = directory.list(myfilter);
+
+            for (String filelist1 : filelist) {
+                //poutln(FilesPath + filelist1);
+                reader = readFile(filespath + filelist1, reader, GedcomLines);
             }
-            if (NumOfErrors > 0) {
-                poutln("\r\n" + NumOfErrors + " FILE ERRORS LISTED ABOVE" + "\r\n");
-                //System.console().writer().println("\r\n" + NumOfErrors + " FILE ERRORS LISTED ABOVE" + "\r\n");
-            }
+            //reader = readFile(GedcomFilename, reader, GedcomLines);
             
         } catch (IOException e) {
             e.printStackTrace();
@@ -46,6 +46,30 @@ public class FileLoader {
                 e.printStackTrace();
             }
         }
+    }
+
+    private static BufferedReader readFile(String GedcomFilename, BufferedReader reader, ArrayList<String> GedcomLines) throws FileNotFoundException, IOException {
+        int NumOfErrors = 0;
+        File file = new File(GedcomFilename);
+        reader = new BufferedReader(new FileReader(file));
+        String line;
+
+        while ((line = reader.readLine()) != null) {
+            if (LineOK(line)) {
+                GedcomLines.add(line);
+            } else {
+                NumOfErrors++;
+            }
+        }
+        if (NumOfErrors > 0) {
+            poutln("\r\n" + NumOfErrors + " FILE ERRORS LISTED ABOVE" + "\r\n");
+            //System.console().writer().println("\r\n" + NumOfErrors + " FILE ERRORS LISTED ABOVE" + "\r\n");
+        }
+        //poutln("end dir list");
+        return reader;
+    }
+
+    public FileLoader() {
     }
 
     private static boolean LineOK(String text) {

@@ -1,0 +1,104 @@
+0 HEAD
+1 SOUR Family Echo
+2 WWW http://www.familyecho.com/
+1 FILE Family 2
+1 DATE 5 OCT 2013
+1 DEST ANSTFILE
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 SUBM @I1@
+2 NAME Me
+1 SUBN
+1 CHAR UTF-8
+0 NOTE Bio notes: Output: Individuals #10-12 have death before birth dates. The program should display this error for individuals with identifiers I10 through I12. Purpose : to demonstrate the program can catch errors in the GEDCOM file. Program should also not attach this note to any person node
+0 @I1@ INDI
+1 NAME Tom /Smith/
+2 GIVN Tom
+2 SURN Smith
+2 _MARNM Smith
+1 SEX M
+1 BIRT
+2 DATE 5 SEP 1977
+1 NOTE Bio notes: Output: Display each family member's info and their relationships. The program also displays 'invalid' for inivald tags not specified for the project. Purpose : to demonstrate the program can read GEDCOM file and determine valid/invalid tags, put the info into internal data structure and display each family member's info and their relationship. This node is a syntax error
+1 FAMS @F1@
+1 FAMC @F2@
+0 @I2@ INDI
+1 NAME Mary /Rosensteel/
+2 GIVN Mary
+2 SURN Rosensteel
+2 _MARNM Smith
+1 SEX F
+1 BIRT
+2 DATE 3 SEP 1981
+1 DEAT
+2 DATE 3 SEP 1999
+1 FAMS @F1@
+0 NOTE Individual #2 given a death date to test death before marriage
+0 @I3@ INDI
+1 NAME John Smith /Smith/
+2 GIVN John Smith
+2 SURN Smith
+2 _MARNM Smith
+1 SEX M
+1 BIRT
+2 DATE 10 MAY 2005
+1 FAMC @F1@
+0 @I4@ INDI
+1 NAME Jennifer Smith /Smith/
+2 GIVN Jennifer Smith
+2 SURN Smith
+2 _MARNM Smith
+1 SEX F
+1 BIRT
+2 DATE 30 NOV 2007
+1 FAMC @F1@
+0 @I5@ INDI
+1 NAME George /Smith/
+2 GIVN George
+2 SURN Smith
+2 _MARNM Smith
+1 SEX M
+1 BIRT
+2 DATE 10 AUG 1947
+1 DEAT
+2 DATE 10 JUN 2000
+0 NOTE Individual #5 given a death date to test legitimate marriage w/ a now deceased person
+1 FAMS @F2@
+0 @I6@ INDI
+1 NAME Susan /Doe/
+2 GIVN Susan
+2 SURN Doe
+2 _MARNM Smith
+1 SEX F
+1 BIRT
+2 DATE 27 JUL 1950
+1 FAMS @F2@
+0 @I7@ INDI
+1 NAME Julie /Smith/
+2 GIVN Julie
+2 SURN Smith
+2 _MARNM Bernard
+1 SEX F
+1 BIRT
+2 DATE 15 APR 1975
+1 FAMS @F3@
+1 FAMC @F2@
+0 @I8@ INDI
+1 NAME John /Bernard/
+1 BIRT
+2 DATE 1 OCT 1973
+2 GIVN John
+2 SURN Bernard
+2 _MARNM Bernard
+1 SEX M
+1 FAMS @F3@
+0 @I9@ INDI
+1 NAME David /Bernard/
+2 GIVN David
+2 SURN Bernard
+2 _MARNM Bernard
+1 SEX M
+1 BIRT
+2 DATE 5 FEB 2004
+1 FAMC @F3@
