@@ -18,8 +18,10 @@ public class GedcomProcessService {
     public static String FilesPath = "";    
     //public static String testFilename = "Project5_GEDCOM_sprint1TestFile.ged";
     //public static String testFilename = "Project5_GEDCOM_sprint2TestFile.ged";
-    public static String testFilename = "Project5_GEDCOM_sprint3TestFile.ged";
-    public static String FamilyDataFilename = "familydata.ged";
+    //public static String testFilename = "Project5_GEDCOM_sprint3TestFile.ged";
+    //public static String testFilename = "testfile.txt";
+    //public static String FamilyDataFilename = "familydata.ged";
+    public static String FamilyDataFilename = "familydata.out";
     public static Writer writer = null;
 
     public static void main(String[] args) {
@@ -29,7 +31,8 @@ public class GedcomProcessService {
         pfamDatasrc = FileSystems.getDefault().getPath("C:/temp");
 
         // Set the FilesPath for different platforms
-        File winPC = new File("C:/temp/" + testFilename);
+        //File winPC = new File("C:/temp/" + testFilename);
+        File winPC = new File("C:/temp/");
         if (winPC.exists()){  // Alan - this could be done better, but just this for a quick test of GitHub and some useful functionaltiy
             FilesPath = "C:/temp/";
         } else {  // Alan - assume it's Casey's Mac.  Could use other code here for other tests
@@ -40,7 +43,8 @@ public class GedcomProcessService {
         if (args != null && args.length > 0) {
             filename = args[0];  //  commandline argument
         } else {
-            filename = FilesPath + testFilename;
+            //filename = FilesPath + testFilename;
+            filename = FilesPath;
         }
 
         execute(filename);

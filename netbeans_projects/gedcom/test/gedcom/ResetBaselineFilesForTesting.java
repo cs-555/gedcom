@@ -4,7 +4,7 @@ import com.sun.org.apache.xpath.internal.operations.And;
 import static java.nio.file.StandardCopyOption.*;
 import static gedcom.GedcomProcessService.FamilyDataFilename;
 import static gedcom.GedcomProcessService.FilesPath;
-import static gedcom.GedcomProcessService.testFilename;
+//import static gedcom.GedcomProcessService.testFilename;
 import java.io.File;
 import java.net.URI;
 import java.nio.file.FileSystems;
@@ -20,7 +20,7 @@ public class ResetBaselineFilesForTesting {
 
     // YOU MUST SET THIS STRING TO A NEW BASELINE WHEN THE PROGRAM IS CHANGED
     // THE BASELINE FILES ARE ONLY USED WHEN PERFROMING REFACTORING
-    public static String newBaseLine = "baseline2";
+    public static String newBaseLine = "baseline4";
     public static String personBeanFilename = "personbeans.txt";  // could be made global public in GedcomProcessService.java & chg in BeanProducer
     public static String familyBeanFilename = "familybeans.txt";  // could be made global public in GedcomProcessService.java & chg in BeanProducer
     
@@ -37,7 +37,8 @@ public class ResetBaselineFilesForTesting {
         // FamilyDataFilename = "afamilydata.ged"; // This was to test the file missing logic.  Can eventually be deleted
         
         // Duplicate code from GedcomProcessService.main(args) to set the FilesPath for different platforms
-        File winPC = new File("C:/temp/" + testFilename);
+        //File winPC = new File("C:/temp/" + testFilename);
+        File winPC = new File("C:/temp/");
         if (winPC.exists()){  // Alan - this could be done better, but just this for a quick test of GitHub and some useful functionaltiy
             FilesPath = "C:/temp/";
         } else {  // Alan - assume it's Casey's Mac.  Could use other code here for other tests
