@@ -39,6 +39,9 @@
 2 GIVN David <Level 2 records must DATE> <invalid tag>
 2 SURN Bernard <Level 2 records must DATE> <invalid tag>
 2 _MARNM Bernard <Level 2 records must DATE> <invalid tag>
+
+41 FILE ERRORS LISTED ABOVE
+
 2 PLAC testing location <Level 2 records must DATE> <invalid tag>
 1 _CURRENT Y <invalid tag>
 1 _CURRENT Y <invalid tag>
@@ -51,9 +54,19 @@
 2 SURN Logan <Level 2 records must DATE> <invalid tag>
 1 _CURRENT Y <invalid tag>
 
-52 FILE ERRORS LISTED ABOVE
+11 FILE ERRORS LISTED ABOVE
 
-Number of families: 4
+bean data <line must begin with 0-2> <invalid tag>
+ <line must begin with 0-2>
+0 ; @I0@ ; 0 ; INDI ; NAME ; SEX ; BIRTHDATE ; DEATHDATE ; FAMC ; FAMS ; TRLR ; NOTE <0 records w/ ID's must be INDI, FAM, TRLR or NOTE> <invalid tag>
+1 ; @I1@ ; 1 ; INDI ; NAME ; SEX ; BIRTHDATE ; DEATHDATE ; FAMC ; FAMS ; TRLR ; NOTE <invalid tag>
+2 ; @I2@ ; 2 ; INDI ; NAME ; SEX ; BIRTHDATE ; DEATHDATE ; FAMC ; FAMS ; TRLR ; NOTE <Level 2 records must DATE> <invalid tag>
+3 ; @I3@ ; 3 ; INDI ; NAME ; SEX ; BIRTHDATE ; DEATHDATE ; FAMC ; FAMS ; TRLR ; NOTE <line must begin with 0-2> <invalid tag>
+4 ; @I4@ ; 4 ; INDI ; NAME ; SEX ; BIRTHDATE ; DEATHDATE ; FAMC ; FAMS ; TRLR ; NOTE <line must begin with 0-2> <invalid tag>
+
+7 FILE ERRORS LISTED ABOVE
+
+Number of families: 6
 Number of persons: 12
 
 Person List:
@@ -77,6 +90,8 @@ Family List:
 @F2@: Husband: George Smith,; Wife: Susan Doe,; Married: 18 JUN 1971; Children: Tom Smith, Julie Smith,
 @F3@: Husband: John Bernard,; Wife: Julie Smith,; Married: 12 NOV 1997; Children: David Bernard,
 @F4@: Husband: George Smith,; Wife: Jennifer Smith,; Married: 8 JUL 2002
+@F5@: Husband: John Smith,; Wife: Jennifer Smith,; Married: 18 AUG 2001
+@F6@: Husband: Tom Smith,; Wife: Julie Smith,; Married: 12 NOV 1998
 
 Death before Marriage test
 
@@ -86,3 +101,14 @@ In family 4 George Smith died on Jun 10 2000 before the marriage date of Jul 08 
 Individal @I10@ Tom Smith's birthdate 10 MAY 2005 is after their deathdate 10 MAY 2004.
 Individal @I11@ Mary Rosensteel's birthdate 23 DEC 1980 is after their deathdate 15 APR 1975.
 Individal @I12@ John Smith's birthdate 12 NOV 2013 is after their deathdate 4 MAR 2012.
+
+Marriage to a sibling test:
+
+In family 1 John Smith and Jennifer Smith are siblings. 
+In family 2 Tom Smith and Julie Smith are siblings. 
+
+Polygamous Individuals: 
+@I1@ Tom Smith
+@I5@ George Smith
+@I7@ Julie Smith
+@I4@ Jennifer Smith

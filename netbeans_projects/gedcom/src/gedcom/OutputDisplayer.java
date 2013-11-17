@@ -23,14 +23,32 @@ public class OutputDisplayer {
         printDeathBeforeMarriageErrors(lFamily, lPerson);
         printDeathBeforeBirthErrors(lPerson);
         printMarrToSibErrors(lFamily, lPerson);
+        printPolygamy(lFamily, lPerson);
     }
+    
+    public static void printPolygamy(List<Family> lFamily, List<Person> lPerson){      
+        
+        
+        try {
+            ArrayList<String> results = Polygamy.getPolygamy(lFamily);
+            pout("Polygamous Individuals: \n");
+            for (int i = 0; i < results.size(); i++){
+                Person pers = findPersonNode(results.get(i),lPerson);
+                pout(pers.getIndi()+ " " + pers.getName()+ "\n");
+            }          
+        }
+        catch(Exception e){
+             System.out.println("Exception thrown during Polygamy.getPolygamy, please investigate..");
+        } 
+        
+    }    
+    
     
     public static void printDeathBeforeBirthErrors(List<Person> lPerson){      
         
         
         try {
-            ArrayList<Person> results = DeathBeforeBirth.getDeathBeforeBirthErrors(lPerson);
-              
+            ArrayList<Person> results = DeathBeforeBirth.getDeathBeforeBirthErrors(lPerson); 
             System.out.println("Death Before Birth Errors: \n");
             for (int i = 0; i < results.size(); i++){
                 pout("Individal "+ results.get(i).getIndi() + " " +  
