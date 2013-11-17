@@ -23,7 +23,29 @@ public class OutputDisplayer {
         printDeathBeforeMarriageErrors(lFamily, lPerson);
         printDeathBeforeBirthErrors(lPerson);
         printMarrToSibErrors(lFamily, lPerson);
+        printPolygamy(lFamily);
     }
+    
+    public static void printPolygamy(List<Family> lFamily){      
+        
+        
+        try {
+            ArrayList<Family> results = Polygamy.getPolygamy(lFamily);
+              
+            System.out.println("Polygamy Instances: \n");
+            for (int i = 0; i < results.size(); i++){
+                pout("One member of family "+ results.get(i).getIdentifier() + " with husband " +
+                results.get(i).getHusb() + " wife " + 
+                "and "+ results.get(i).getWife() + " " + 
+                "is polygamous.\n");
+            }
+        }
+        catch(Exception e){
+             System.out.println("Exception thrown during Polygamy.getPolygamy, please investigate..");
+        } 
+        
+    }    
+    
     
     public static void printDeathBeforeBirthErrors(List<Person> lPerson){      
         
