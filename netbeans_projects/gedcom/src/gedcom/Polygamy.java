@@ -12,30 +12,41 @@ import java.util.List;
  * @author michaelcasey
  */
 public class Polygamy {
-    
+            
     public static ArrayList getPolygamy(List<Family> lFamily){
-        ArrayList<Family> polygamyList = new ArrayList<Family>();
+        ArrayList<String> polygamyList = new ArrayList<String>();
         Family familyNode, otherFamilyNode;
         String husb, wife, husb2, wife2;         
         for ( int i = 0 ; i < lFamily.size() ; i++){
             familyNode = lFamily.get(i);
             husb = familyNode.getHusb();
             wife = familyNode.getWife();
-            for ( int j = 0 ; j < lFamily.size() ; j++){
-                if (i != j){
-                    otherFamilyNode = lFamily.get(j);
-                    husb2 = otherFamilyNode.getHusb();
-                    wife2 = otherFamilyNode.getWife();
-                    if ( husb.equals(husb2) || wife.equals(wife2) ){
-                        //System.out.println("Family1: "+familyNode.getIdentifier()+" "+ husb + " " + wife + " Family2: "+otherFamilyNode.getIdentifier()+" "+ husb2 + " " + wife2 );
-                        if (!polygamyList.contains(lFamily.get(i))){
-                            polygamyList.add(lFamily.get(i));
-                        }
-                    }
-                }
-            }            
+            polygamyList = checkOtherFamilies(lFamily, i, wife, husb, polygamyList);          
         }
         return polygamyList;
     }
     
+    public static ArrayList checkOtherFamilies(List<Family> lFamily, int currentFamilyNumber, String wife, String husb, ArrayList polygamyList){
+        for ( int j = 0 ; j < lFamily.size() ; j++){
+            if (currentFamilyNumber != j){
+                Family otherFamilyNode;
+                String husb2, wife2;   
+                otherFamilyNode = lFamily.get(j);
+                husb2 = otherFamilyNode.getHusb();
+                wife2 = otherFamilyNode.getWife();
+                if ( husb.equals(husb2) ){
+                    if (!polygamyList.contains(husb)){
+                        polygamyList.add(husb);
+                    }
+                } 
+                if ( wife.equals(wife2) ){
+                    if (!polygamyList.contains(wife)){
+                        polygamyList.add(wife);
+                    }
+                }
+            }
+        }         
+        return polygamyList;
+    }
+        
 };

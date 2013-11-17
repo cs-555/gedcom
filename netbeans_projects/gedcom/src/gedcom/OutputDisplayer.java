@@ -23,22 +23,19 @@ public class OutputDisplayer {
         printDeathBeforeMarriageErrors(lFamily, lPerson);
         printDeathBeforeBirthErrors(lPerson);
         printMarrToSibErrors(lFamily, lPerson);
-        printPolygamy(lFamily);
+        printPolygamy(lFamily, lPerson);
     }
     
-    public static void printPolygamy(List<Family> lFamily){      
+    public static void printPolygamy(List<Family> lFamily, List<Person> lPerson){      
         
         
         try {
-            ArrayList<Family> results = Polygamy.getPolygamy(lFamily);
-              
-            System.out.println("Polygamy Instances: \n");
+            ArrayList<String> results = Polygamy.getPolygamy(lFamily);
+            pout("Polygamous Individuals: \n");
             for (int i = 0; i < results.size(); i++){
-                pout("One member of family "+ results.get(i).getIdentifier() + " with husband " +
-                results.get(i).getHusb() + " wife " + 
-                "and "+ results.get(i).getWife() + " " + 
-                "is polygamous.\n");
-            }
+                Person pers = findPersonNode(results.get(i),lPerson);
+                pout(pers.getIndi()+ " " + pers.getName()+ "\n");
+            }          
         }
         catch(Exception e){
              System.out.println("Exception thrown during Polygamy.getPolygamy, please investigate..");
@@ -51,8 +48,7 @@ public class OutputDisplayer {
         
         
         try {
-            ArrayList<Person> results = DeathBeforeBirth.getDeathBeforeBirthErrors(lPerson);
-              
+            ArrayList<Person> results = DeathBeforeBirth.getDeathBeforeBirthErrors(lPerson); 
             System.out.println("Death Before Birth Errors: \n");
             for (int i = 0; i < results.size(); i++){
                 pout("Individal "+ results.get(i).getIndi() + " " +  

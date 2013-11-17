@@ -107,9 +107,8 @@ Marriage to a sibling test:
 In family 1 John Smith and Jennifer Smith are siblings. 
 In family 2 Tom Smith and Julie Smith are siblings. 
 
-One member of family @F1@ with husband @I1@ wife and @I2@ is polygamous.
-One member of family @F2@ with husband @I5@ wife and @I6@ is polygamous.
-One member of family @F3@ with husband @I8@ wife and @I7@ is polygamous.
-One member of family @F4@ with husband @I5@ wife and @I4@ is polygamous.
-One member of family @F5@ with husband @I3@ wife and @I4@ is polygamous.
-One member of family @F6@ with husband @I1@ wife and @I7@ is polygamous.
+Polygamous Individuals: 
+@I1@ Tom Smith
+@I5@ George Smith
+@I7@ Julie Smith
+@I4@ Jennifer Smith
