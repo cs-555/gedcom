@@ -36,7 +36,9 @@ public class GedcomProcessService {
         if (winPC.exists()){  // Alan - this could be done better, but just this for a quick test of GitHub and some useful functionaltiy
             FilesPath = "C:/temp/";
         } else {  // Alan - assume it's Casey's Mac.  Could use other code here for other tests
-            FilesPath = "/Users/michaelcasey/Google Drive/Code/netbeans_projects/gedcom/src/gedcom/";
+            FilesPath = "/Users/mcasey/NetBeansProjects/gedcom/netbeans_projects/gedcom/src/gedcom/";
+            //MC Home Computer 
+            //FilesPath = "/Users/michaelcasey/Google Drive/Code/netbeans_projects/gedcom/src/gedcom/"
         }
         // FamilyDataFilename = FilesPath + FamilyDataFilename;
         
